@@ -34,13 +34,18 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
         FadeTransition(
           opacity: animation,
-          child: Image.asset(
-            'assets/images/amit.png',
-            width: 85,
-            height: 85,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset(
+              'assets/images/amit.png',
+              width: 85,
+              height: 85,
+            ),
           ),
         ),
         const SizedBox(
@@ -58,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen>
             )
           ],
         ),
-      ]),
-    ));
+      ],
+    )));
   }
 }
