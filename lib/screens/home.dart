@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:note_app/model/item_model.dart';
-
+import 'package:note_app/views/products.dart';
+import 'package:note_app/model/product_model.dart';
 import '../views/items.dart';
 
 // ignore: must_be_immutable
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
     "assets/images/2.png",
     "assets/images/3.jpeg",
   ];
-  List<String> data2 = ["Pizza", "Burger", "Crapes"];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget {
         height: double.infinity,
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 15),
           child: SingleChildScrollView(
             child: Column(
                 // mainAxisAlignment: MainAxisAlignment.start,
@@ -34,24 +35,39 @@ class HomeScreen extends StatelessWidget {
                         itemBuilder: (BuildContext context, int index) {
                           return Image.asset(image[index]);
                         },
+                        autoplay: true,
                         itemCount: 3,
-                        pagination: const SwiperPagination(),
+                        pagination:
+                            const SwiperPagination(margin: EdgeInsets.all(15)),
                         control: const SwiperControl(),
                       ),
                     ),
                   ),
                   const SizedBox(
-                    height: 25,
-                    width: 25,
+                    height: 5,
+                    width: 5,
                   ),
-                  const Text(
-                    "Category",
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 15,
+                    ),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Category",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueAccent,
+                        ),
+                      ),
+                    ),
                   ),
                   SizedBox(
-                      height: 800,
+                      height: 200,
                       width: 400,
                       child: ListView.separated(
+                        scrollDirection: Axis.vertical,
                         shrinkWrap: true,
                         itemBuilder: (context, int index) {
                           return Items(
@@ -61,6 +77,41 @@ class HomeScreen extends StatelessWidget {
                         separatorBuilder: (context, int index) =>
                             const Divider(color: Colors.red),
                         itemCount: dataItem.length,
+                      )),
+                  const SizedBox(
+                    height: 25,
+                    width: 5,
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 15,
+                      vertical: 10,
+                    ),
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Text(
+                        "Products",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orange,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                      height: 100,
+                      width: 700,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, int index) {
+                          return Products(
+                            itemShop: dataShop[index],
+                          );
+                        },
+                        separatorBuilder: (context, int index) =>
+                            const Divider(color: Colors.red),
+                        itemCount: dataShop.length,
                       ))
                 ]),
           ),
