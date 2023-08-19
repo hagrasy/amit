@@ -103,6 +103,7 @@ class HomeScreen extends StatelessWidget {
                       height: 100,
                       width: 700,
                       child: ListView.separated(
+                        shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, int index) {
                           return Products(

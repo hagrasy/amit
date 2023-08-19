@@ -18,12 +18,18 @@ List<ItemProduct> dataItem = [
     pathPic: "assets/images/1.jpg",
     textItem: "Flower",
     iconItem: const Icon(Icons.favorite_border, color: Colors.green),
-    price: "50",
+    price: "75",
   ),
   ItemProduct(
     pathPic: "assets/images/3.jpeg",
     textItem: "Pizza",
     iconItem: const Icon(Icons.favorite_border, color: Colors.green),
-    price: "50",
+    price: "100",
+  ),
+  ItemProduct(
+    pathPic: "assets/images/2.png",
+    textItem: "Headset",
+    iconItem: const Icon(Icons.favorite_border, color: Colors.green),
+    price: "200",
   )
 ];
