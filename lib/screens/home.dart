@@ -110,7 +110,9 @@ class HomeScreen extends StatelessWidget {
                           );
                         },
                         separatorBuilder: (context, int index) =>
-                            const Divider(color: Colors.red),
+                            const SizedBox(
+                          width: 10,
+                        ),
                         itemCount: dataShop.length,
                       ))
                 ]),
