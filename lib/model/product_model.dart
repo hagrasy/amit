@@ -21,7 +21,7 @@ List<ItemShop> dataShop = [
       price: "5,500"),
   ItemShop(
       pathPic: "assets/images/P2.jpg",
-      textItem: "Cosmatics",
+      textItem: "Skin",
       iconItem: const Icon(Icons.add_shopping_cart_outlined),
       price: "250"),
   ItemShop(
